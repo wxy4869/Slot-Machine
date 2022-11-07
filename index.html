@@ -1,0 +1,29 @@
+<!--Created by 明阳 on 2014/12/22.-->
+<!--updated by 軒 on 2019/12/15.-->
+<!--owned by BUAA_SOFT-->
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Slot Machine</title>
+  <!-- 注意顺序调整时需要慎重，js加载有先后顺序 -->
+  <script type="text/javascript" src="./javascripts/jquery.min.js"></script>
+  <script type="text/javascript" src="./javascripts/three.min.js"></script>
+  <script type="text/javascript" src="./javascripts/tween.min.js"></script>
+  <script type="text/javascript" src="./javascripts/CSS3DRenderer.js"></script>
+  <!-- 以下五个文件是具体的内容控制，以上为依赖 -->
+  <script type="text/javascript" src="./javascripts/action.js"></script>
+  <script type="text/javascript" src="./javascripts/slot.js"></script>
+  <script type="text/javascript" src="./javascripts/list.js"></script>
+  <link rel="stylesheet" href="./stylesheets/global.css">
+  <link rel="stylesheet" href="./stylesheets/slot.css">
+</head>
+<body>
+  <!-- 背景效果与各种操作时，基于id进行的音效控制 -->
+  <video id="video" autoplay loop src="./video/bg.mp4"></video>
+  <audio id="click" src="./audio/click.mp3"></audio>
+  <audio id="bg" src="./audio/bg.mp3" loop></audio>
+  <audio id="run" src="./audio/running.mp3" loop></audio>
+  <audio id="got" src="./audio/got.mp3" loop></audio>
+</body>
+</html>

@@ -1,0 +1,212 @@
+/* ========================================================================== *
+ * Font Face                                                                  *
+ * ========================================================================== */
+
+@font-face {
+  font-family: 'Slackey';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Slackey'), url(./fonts/Slackey.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Digital';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Digital'), url(./fonts/DIGIB.TTF) format('truetype');
+}
+
+/* ========================================================================== *
+ * Global Viewport                                                            *
+ * ========================================================================== */
+
+body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  display: block;
+  text-align: center;
+
+  background-color: black;
+}
+
+/* ========================================================================== *
+ * Video Background                                                           *
+ * ========================================================================== */
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -20;
+}
+
+/* 如果屏幕宽高比大于16:9，则充满宽度 */
+@media (min-aspect-ratio: 16/9) {
+  video {
+    /*        width: 100%;*/
+    /*        height: auto;*/
+    height: 300%;
+    top: -100%;
+  }
+}
+
+/* 如果屏幕宽高比小于16:9，则充满高度 */
+@media (max-aspect-ratio: 16/9) {
+  video {
+    /*        height: 100%;*/
+    /*        width: auto;*/
+    width: 300%;
+    left: -100%;
+  }
+}
+
+/* 如果浏览器支持object-fit则启用之（该属性可替代前面的媒体查询） */
+@supports (object-fit: cover) {
+  video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ========================================================================== *
+ * THREE.js Canvas                                                            *
+ * ========================================================================== */
+
+canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+/* ========================================================================== *
+ * Slot Machine                                                                  *
+ * ========================================================================== */
+
+/* 总背景 */
+/* 加边框的话会导致页面切换出现边框，因此不做设定 */
+.backGround {
+  width: 6000px;
+  height: 3000px;
+  /*box-shadow: 0 0 12px rgba(0,255,255,0.85);*/
+  /*border: 1px solid rgba(127,255,255,0.65);*/
+  background: radial-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0));
+  text-align: center;
+  display: table;
+}
+
+/* 数字 */
+.digit {
+  width: 120px;
+  height: 160px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.85);
+  border: 1px solid rgba(127, 255, 255, 0.65);
+  background-color: rgba(0, 127, 127, 0.65);
+  text-align: center;
+  display: table;
+}
+
+.digit span {
+  display: table-cell;
+  vertical-align: middle;
+  font-family: Digital;
+  font-size: 148px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
+}
+
+/* 单次获奖人员 */
+.name {
+  width: 480px;
+  height: 160px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.85);
+  border: 1px solid rgba(127, 255, 255, 0.65);
+  background-color: rgba(0, 127, 127, 0.65);
+  text-align: center;
+  display: table;
+}
+
+.name span {
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Microsoft YaHei';
+  font-size: 148px;
+  font-weight: bold;
+  color: rgba(197, 255, 253, 0.75);
+  text-shadow: 0 0 10px rgba(229, 255, 167, 0.95);
+}
+
+/* 获奖名单 */
+.result {
+  font-size: 40px;
+  
+  width: 800px;
+  height: 600px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.85);
+  border: 1px solid rgba(127, 255, 255, 0.65);
+  background-color: rgba(0, 127, 127, 0.65);
+  text-align: center;
+  display: table;
+}
+
+.result span {
+  top: 10px;
+  left: 10px;
+  height: 50px;
+  
+  position: absolute;
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: bold;
+  font-family: 'Microsoft YaHei';
+  font-size: 50px;
+  /*font-weight: bold;*/
+  color: rgba(255, 158, 57, 0.75);
+  text-shadow: 0 0 10px rgba(255, 244, 95, 0.95);
+  letter-spacing: 10px;
+}
+.result p {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Microsoft YaHei';
+  font-weight: bold;
+  color: rgba(197, 255, 253, 0.75);
+  text-shadow: 0 0 10px rgba(229, 255, 167, 0.95);
+}
+
+/* 身份标记 */
+.sign {
+  width: 240px;
+  height: 160px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.85);
+  border: 1px solid rgba(127, 255, 255, 0.65);
+  background-color: rgba(0, 127, 127, 0.65);
+  text-align: center;
+  display: table;
+}
+
+.sign span {
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Microsoft YaHei';
+  font-size: 60px;
+  font-weight: bold;
+  color: rgba(197, 255, 253, 0.75);
+  text-shadow: 0 0 10px rgba(229, 255, 167, 0.95);
+}
